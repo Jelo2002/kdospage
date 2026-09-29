@@ -127,12 +127,12 @@ export default function InterviewPage() {
   return (
     <div className="max-w-2xl mx-auto py-6 space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
-      <div className="flex items-center justify-between border-b border-clivax-border pb-5">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-5">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-100">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900">
             Candidate Evaluation Scorecard
           </h1>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-slate-500 mt-0.5">
             Record standardized interview metrics, observations, and admission score.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function InterviewPage() {
         {isOwnerOrDev && (
           <Link
             href="/"
-            className="text-xs text-slate-400 hover:text-clivax-primary flex items-center gap-1.5 font-semibold transition-colors bg-clivax-card border border-clivax-border px-3 py-1.5 rounded-lg"
+            className="text-xs text-slate-600 hover:text-emerald-700 flex items-center gap-1.5 font-semibold transition-colors bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-xs"
           >
             <span>Candidate Pipeline</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -150,46 +150,46 @@ export default function InterviewPage() {
 
       {/* Success View */}
       {submittedCandidate ? (
-        <div className="p-6 rounded-2xl bg-clivax-card border border-clivax-border shadow-xl space-y-5 animate-fade-in">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-5 animate-fade-in">
           <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0 shadow-inner">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 flex-shrink-0">
               <Check className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-slate-100">
+              <h2 className="text-sm font-bold text-slate-900">
                 Evaluation Submitted Successfully
               </h2>
-              <p className="text-xs text-slate-400">
-                Record for <span className="font-mono text-emerald-400 font-semibold">{submittedCandidate.ign}</span> has been indexed with a score of <span className="text-amber-400 font-semibold">{submittedCandidate.rating}.0 / 5.0</span>.
+              <p className="text-xs text-slate-500">
+                Record for <span className="font-mono text-emerald-700 font-semibold">{submittedCandidate.ign}</span> has been indexed with a score of <span className="text-amber-700 font-semibold">{submittedCandidate.rating}.0 / 5.0</span>.
               </p>
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-clivax-sidebar/80 border border-clivax-border flex items-center justify-between">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <SkinAvatar ign={submittedCandidate.ign} size={40} className="ring-1 ring-clivax-border" />
+              <SkinAvatar ign={submittedCandidate.ign} size={40} className="ring-1 ring-slate-200" />
               <div>
-                <div className="text-xs font-bold text-slate-100">
+                <div className="text-xs font-bold text-slate-900">
                   {submittedCandidate.ign}
                 </div>
-                <div className="text-[11px] text-slate-400">
-                  Evaluated by <strong className="text-slate-200">{submittedCandidate.interviewer_ign}</strong>
+                <div className="text-[11px] text-slate-500">
+                  Evaluated by <strong className="text-slate-800">{submittedCandidate.interviewer_ign}</strong>
                 </div>
               </div>
             </div>
 
             <div className="text-right">
-              <div className="text-sm font-mono font-bold text-amber-400">
+              <div className="text-sm font-mono font-bold text-amber-600">
                 {submittedCandidate.rating}.0 ★
               </div>
-              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400">
+              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded font-semibold bg-amber-50 border border-amber-200 text-amber-700">
                 Pending Review
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-xs text-emerald-400">
-            <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+          <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
             <span>Preserved in your device&apos;s local offline vault. Auto-syncs to the main operations pipeline.</span>
           </div>
 
@@ -197,7 +197,7 @@ export default function InterviewPage() {
             <button
               type="button"
               onClick={handleResetForm}
-              className="flex-1 py-2.5 px-4 rounded-lg text-xs font-semibold bg-clivax-primary hover:bg-emerald-400 text-slate-950 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 cursor-pointer"
+              className="flex-1 py-2.5 px-4 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Evaluate Next Candidate
@@ -205,7 +205,7 @@ export default function InterviewPage() {
 
             <Link
               href="/"
-              className="py-2.5 px-4 rounded-lg text-xs font-medium bg-clivax-card hover:bg-slate-800 text-slate-300 border border-clivax-border transition-colors flex items-center justify-center gap-1.5"
+              className="py-2.5 px-4 rounded-lg text-xs font-medium bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
             >
               Pipeline Overview
               <ExternalLink className="w-3.5 h-3.5" />
@@ -214,21 +214,21 @@ export default function InterviewPage() {
         </div>
       ) : (
         /* The Form */
-        <form onSubmit={handleSubmit} className="bg-clivax-card border border-clivax-border rounded-2xl p-6 shadow-sm space-y-5">
+        <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-5">
           {errorMsg && (
-            <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-rose-400 flex-shrink-0" />
+            <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-rose-500 flex-shrink-0" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {/* Section 1: Candidate Identification */}
           <div className="space-y-2">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-              Candidate In-Game Name (IGN) <span className="text-rose-400">*</span>
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+              Candidate In-Game Name (IGN) <span className="text-rose-500">*</span>
             </label>
             <div className="flex items-center gap-3">
-              <SkinAvatar ign={ign || 'User'} size={42} className="ring-1 ring-clivax-border shadow-inner" />
+              <SkinAvatar ign={ign || 'User'} size={42} className="ring-1 ring-slate-200 shadow-xs" />
               <input
                 type="text"
                 required
@@ -236,15 +236,15 @@ export default function InterviewPage() {
                 value={ign}
                 onChange={(e) => setIgn(e.target.value)}
                 placeholder="e.g. ApplicantUsername"
-                className="w-full px-3.5 py-2.5 rounded-lg bg-clivax-bg border border-clivax-border text-slate-100 text-xs focus:outline-none focus:ring-1 focus:ring-clivax-primary focus:border-clivax-primary placeholder-slate-600 font-semibold"
+                className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 placeholder-slate-400 font-semibold transition-all"
               />
             </div>
           </div>
 
           {/* Section 2: Scorecard Rating (1 to 5 Stars) */}
-          <div className="p-4 rounded-xl bg-clivax-sidebar/80 border border-clivax-border space-y-2.5">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-              Evaluation Score (1.0 to 5.0) <span className="text-rose-400">*</span>
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+              Evaluation Score (1.0 to 5.0) <span className="text-rose-500">*</span>
             </label>
             <StarRating
               value={rating}
@@ -256,7 +256,7 @@ export default function InterviewPage() {
 
           {/* Section 3: Assessment Notes */}
           <div className="space-y-2">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               Assessment Notes & Interview Observations
             </label>
             <textarea
@@ -264,13 +264,13 @@ export default function InterviewPage() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Detail candidate's responses, previous server experience, collaboration maturity, playstyle, and technical capabilities..."
-              className="w-full px-3.5 py-2.5 rounded-lg bg-clivax-bg border border-clivax-border text-slate-100 text-xs focus:outline-none focus:ring-1 focus:ring-clivax-primary focus:border-clivax-primary placeholder-slate-600 leading-relaxed"
+              className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 placeholder-slate-400 leading-relaxed transition-all"
             />
           </div>
 
           {/* Section 4: Competencies & Tags */}
           <div className="space-y-2">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               Demonstrated Competencies
             </label>
             <div className="flex flex-wrap gap-2">
@@ -285,9 +285,9 @@ export default function InterviewPage() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border cursor-pointer ${
                       active
                         ? isRisk
-                          ? 'bg-rose-500/15 text-rose-300 border-rose-500/40 ring-1 ring-rose-500/20'
-                          : 'bg-clivax-primary/15 text-emerald-400 border-clivax-primary/40 ring-1 ring-clivax-primary/20'
-                        : 'bg-clivax-bg text-slate-400 border-clivax-border hover:border-slate-700 hover:text-slate-200'
+                          ? 'bg-rose-50 text-rose-800 border-rose-300 ring-1 ring-rose-300'
+                          : 'bg-emerald-50 text-emerald-800 border-emerald-300 ring-1 ring-emerald-300'
+                        : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900'
                     }`}
                   >
                     {active ? '✓ ' : '+ '}
@@ -299,18 +299,18 @@ export default function InterviewPage() {
           </div>
 
           {/* Section 5: Evaluator Information */}
-          <div className="pt-3 border-t border-clivax-border flex items-center justify-between text-xs">
+          <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2.5">
-              <span className="text-slate-400">Evaluator:</span>
+              <span className="text-slate-500">Evaluator:</span>
               <input
                 type="text"
                 value={interviewerIgn}
                 onChange={(e) => setInterviewerIgn(e.target.value)}
-                className="px-3 py-1 rounded-lg bg-clivax-bg border border-clivax-border text-slate-200 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-clivax-primary w-40"
+                className="px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-mono text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 w-40"
               />
             </div>
-            <div className="text-[11px] text-slate-500 flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Offline Vault Protection Active</span>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function InterviewPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 px-4 rounded-xl font-bold text-xs bg-clivax-primary hover:bg-emerald-400 text-slate-950 transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 disabled:opacity-50 cursor-pointer"
+            className="w-full py-3 px-4 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white transition-all flex items-center justify-center gap-2 shadow-xs disabled:opacity-50 cursor-pointer"
           >
             {isSubmitting ? (
               <span>Submitting Scorecard...</span>

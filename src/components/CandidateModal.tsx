@@ -55,17 +55,17 @@ export default function CandidateModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="w-full max-w-lg bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden flex flex-col text-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-fade-in">
+      <div className="w-full max-w-lg bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col text-xs">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-zinc-800 bg-zinc-950/60">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-200 bg-slate-50/80">
           <div className="flex items-center gap-3">
             <SkinAvatar ign={candidate.ign} size={36} />
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm text-zinc-100">{candidate.ign}</span>
+                <span className="font-bold text-sm text-slate-900">{candidate.ign}</span>
               </div>
-              <span className="text-[11px] text-zinc-400">
+              <span className="text-[11px] text-slate-500">
                 Evaluator: {candidate.interviewer_ign} • {new Date(candidate.created_at).toLocaleDateString()}
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function CandidateModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-1 text-zinc-400 hover:text-zinc-200 rounded"
+            className="p-1 text-slate-400 hover:text-slate-600 rounded transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -84,7 +84,7 @@ export default function CandidateModal({
         <div className="p-5 space-y-4 overflow-y-auto max-h-[75vh]">
           {/* Admissions Decision */}
           <div>
-            <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5">
               Admissions Determination
             </label>
             <div className="grid grid-cols-3 gap-1.5">
@@ -97,14 +97,14 @@ export default function CandidateModal({
                   key={s.id}
                   type="button"
                   onClick={() => setStatus(s.id as CandidateStatus)}
-                  className={`py-2 rounded-md font-medium text-xs border transition-colors ${
+                  className={`py-2 rounded-lg font-semibold text-xs border transition-colors ${
                     status === s.id
                       ? s.id === 'accepted'
-                        ? 'bg-emerald-950/70 border-emerald-700 text-emerald-300'
+                        ? 'bg-emerald-50 border-emerald-300 text-emerald-800 ring-1 ring-emerald-300'
                         : s.id === 'pending'
-                        ? 'bg-amber-950/70 border-amber-700 text-amber-300'
-                        : 'bg-rose-950/70 border-rose-700 text-rose-300'
-                      : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200'
+                        ? 'bg-amber-50 border-amber-300 text-amber-800 ring-1 ring-amber-300'
+                        : 'bg-rose-50 border-rose-300 text-rose-800 ring-1 ring-rose-300'
+                      : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300'
                   }`}
                 >
                   {s.label}
@@ -114,8 +114,8 @@ export default function CandidateModal({
           </div>
 
           {/* Star Rating Adjuster */}
-          <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1.5">
-            <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               Evaluation Score
             </label>
             <StarRating value={rating} onChange={setRating} size="md" />
@@ -123,28 +123,28 @@ export default function CandidateModal({
 
           {/* Assessment Log */}
           <div>
-            <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
               Assessment Log & Interview Notes
             </label>
             <textarea
               rows={4}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full p-2.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 leading-relaxed"
+              className="w-full p-2.5 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 leading-relaxed placeholder-slate-400"
             />
           </div>
 
           {/* Tags */}
           {candidate.tags && candidate.tags.length > 0 && (
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1.5">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1.5">
                 Competency Badges
               </label>
               <div className="flex flex-wrap gap-1">
                 {candidate.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-800 border border-zinc-700 text-zinc-300"
+                    className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 border border-emerald-200 text-emerald-800"
                   >
                     {tag}
                   </span>
@@ -155,12 +155,12 @@ export default function CandidateModal({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between px-5 py-3 border-t border-zinc-800 bg-zinc-950/60">
+        <div className="flex items-center justify-between px-5 py-3 border-t border-slate-200 bg-slate-50/50">
           <button
             type="button"
             onClick={handleDelete}
             disabled={isDeleting}
-            className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1 transition-colors"
+            className="text-xs text-rose-600 hover:text-rose-700 flex items-center gap-1 transition-colors font-semibold"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Delete</span>
@@ -170,7 +170,7 @@ export default function CandidateModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-3 py-1.5 rounded-md text-xs font-medium text-zinc-400 hover:text-zinc-200"
+              className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900"
             >
               Cancel
             </button>
@@ -178,7 +178,7 @@ export default function CandidateModal({
               type="button"
               onClick={handleSave}
               disabled={isSaving}
-              className="px-3.5 py-1.5 rounded-md text-xs font-medium bg-zinc-100 hover:bg-white text-zinc-950 transition-colors shadow-sm"
+              className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-sm"
             >
               {isSaving ? 'Saving...' : 'Save Changes'}
             </button>

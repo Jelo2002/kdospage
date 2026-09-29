@@ -43,8 +43,8 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   // Loading state while checking localStorage session
   if (isLoadingAuth) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0b0f17] text-zinc-400 space-y-4">
-        <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-xl ring-1 ring-emerald-500/40 animate-pulse">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#f8fafc] text-slate-600 space-y-4">
+        <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-md ring-1 ring-emerald-500/40 animate-pulse">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/kdos-logo.png"
@@ -55,7 +55,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
             }}
           />
         </div>
-        <p className="text-[11px] font-mono uppercase text-zinc-400 tracking-wider">
+        <p className="text-[11px] font-mono uppercase text-slate-500 tracking-wider">
           Initializing KDOS Operations...
         </p>
       </div>
@@ -65,11 +65,11 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   // Not authenticated: Render Login Screen
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex flex-col justify-between bg-[#0b0f17] text-zinc-100">
-        <header className="py-4 border-b border-[#1e293b] text-center bg-[#0d131f]/50">
+      <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-slate-50 via-slate-100 to-emerald-50/30 text-slate-900">
+        <header className="py-4 border-b border-slate-200 text-center bg-white/80 backdrop-blur-md">
           <div className="flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span className="text-[11px] font-mono uppercase tracking-widest text-slate-500">
               KDOS Operations System • Secure Gateway
             </span>
           </div>
@@ -79,7 +79,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
           <LoginScreen />
         </main>
 
-        <footer className="py-3 border-t border-[#1e293b] text-center text-[11px] text-zinc-400 bg-[#0d131f]/50">
+        <footer className="py-3 border-t border-slate-200 text-center text-[11px] text-slate-400 bg-white/80">
           KDOS Operations System • Production SMP Administration
         </footer>
       </div>
@@ -88,7 +88,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
 
   // Authenticated: Render full application with Sidebar, Navbar and main layout canvas
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-zinc-100 flex">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex">
       {/* Collapsible Left Sidebar */}
       <Sidebar
         isCollapsed={isCollapsed}
@@ -118,12 +118,12 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
         </main>
 
         {/* Global Footer */}
-        <footer className="border-t border-[#1e293b] py-4 px-6 text-center text-xs text-zinc-400 bg-[#0d131f]/30">
+        <footer className="border-t border-slate-200 py-4 px-6 text-center text-xs text-slate-500 bg-white/60">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 max-w-[1600px] mx-auto">
             <span className="text-[11px]">
               KDOS Operations • Candidate Pipeline & Workforce Supervision
             </span>
-            <span className="text-[10px] text-zinc-400 font-mono">
+            <span className="text-[10px] text-slate-400 font-mono">
               Production SMP Build • Cloud Persisted
             </span>
           </div>

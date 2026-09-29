@@ -222,20 +222,20 @@ export default function CandidateDashboard() {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* Clivax Hero Header & Controls */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-[#0d131f] border border-[#1e293b] shadow-xl">
+      {/* Hero Header & Controls */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 font-mono">
               Admissions Engine
             </span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-xs text-zinc-400">Live ATS Pipeline</span>
+            <span className="text-slate-300">•</span>
+            <span className="text-xs text-slate-500">Live ATS Pipeline</span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
             <span>Candidate Admissions & Pipeline</span>
           </h1>
-          <p className="text-xs text-zinc-400 max-w-xl">
+          <p className="text-xs text-slate-500 max-w-xl">
             Standardized applicant evaluation records, voice interview rubrics, and admissions decisions.
           </p>
         </div>
@@ -245,10 +245,10 @@ export default function CandidateDashboard() {
           <button
             type="button"
             onClick={() => setIsBackupModalOpen(true)}
-            className="px-3 py-2 rounded-xl text-xs font-semibold bg-[#111827] border border-[#1e293b] hover:border-emerald-500/50 text-zinc-200 hover:text-white transition-all flex items-center gap-2 shadow-sm"
+            className="px-3 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 transition-all flex items-center gap-2 shadow-xs cursor-pointer"
             title="Import, restore, or export backups"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Backup & Restore</span>
           </button>
 
@@ -256,15 +256,15 @@ export default function CandidateDashboard() {
             type="button"
             onClick={handleExportCsv}
             disabled={candidates.length === 0}
-            className="px-3 py-2 rounded-xl text-xs font-semibold bg-[#111827] border border-[#1e293b] hover:border-zinc-700 text-zinc-300 hover:text-white transition-all flex items-center gap-2 shadow-sm disabled:opacity-40"
+            className="px-3 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 hover:border-slate-300 text-slate-700 hover:text-slate-900 transition-all flex items-center gap-2 shadow-xs disabled:opacity-40 cursor-pointer"
           >
-            <FileSpreadsheet className="w-3.5 h-3.5 text-zinc-400" />
+            <FileSpreadsheet className="w-3.5 h-3.5 text-slate-400" />
             <span>Export CSV</span>
           </button>
 
           <Link
             href="/interview"
-            className="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center gap-2 shadow-md shadow-emerald-950/60"
+            className="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-all flex items-center gap-2 shadow-xs"
           >
             <Plus className="w-4 h-4" />
             <span>Launch Scorecard</span>
@@ -272,97 +272,97 @@ export default function CandidateDashboard() {
         </div>
       </div>
 
-      {/* Clivax Metric Cards Grid (KPI Strip) */}
+      {/* Metric Cards Grid (KPI Strip) */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
         {/* Total Evaluated */}
-        <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1e293b] hover:border-zinc-700 transition-all flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-300 shadow-xs transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Total Evaluated</span>
-            <div className="w-7 h-7 rounded-lg bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-zinc-300">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Total Evaluated</span>
+            <div className="w-7 h-7 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600">
               <Users className="w-3.5 h-3.5" />
             </div>
           </div>
           <div className="mt-2">
-            <div className="text-2xl font-bold text-white font-mono">{stats.total}</div>
-            <div className="text-[10px] text-zinc-400 mt-0.5">Recorded applicant pool</div>
+            <div className="text-2xl font-bold text-slate-900 font-mono">{stats.total}</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Recorded applicant pool</div>
           </div>
         </div>
 
         {/* Admitted */}
-        <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1e293b] hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-300 shadow-xs transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Admitted</span>
-            <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">Admitted</span>
+            <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
               <CheckCircle2 className="w-3.5 h-3.5" />
             </div>
           </div>
           <div className="mt-2">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-emerald-400 font-mono">{stats.accepted}</span>
-              <span className="text-[11px] font-mono text-emerald-500 font-medium">({stats.acceptanceRate}%)</span>
+              <span className="text-2xl font-bold text-emerald-700 font-mono">{stats.accepted}</span>
+              <span className="text-[11px] font-mono text-emerald-600 font-semibold">({stats.acceptanceRate}%)</span>
             </div>
-            <div className="text-[10px] text-zinc-400 mt-0.5">Approved for server whitelist</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Approved for server whitelist</div>
           </div>
         </div>
 
         {/* Pending Review */}
-        <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1e293b] hover:border-amber-500/40 transition-all flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-amber-300 shadow-xs transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Pending Review</span>
-            <div className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Pending Review</span>
+            <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
               <Clock className="w-3.5 h-3.5" />
             </div>
           </div>
           <div className="mt-2">
-            <div className="text-2xl font-bold text-amber-400 font-mono">{stats.pending}</div>
-            <div className="text-[10px] text-zinc-400 mt-0.5">Awaiting staff consensus</div>
+            <div className="text-2xl font-bold text-amber-700 font-mono">{stats.pending}</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Awaiting staff consensus</div>
           </div>
         </div>
 
         {/* Disqualified */}
-        <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1e293b] hover:border-rose-500/40 transition-all flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-rose-300 shadow-xs transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Disqualified</span>
-            <div className="w-7 h-7 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Disqualified</span>
+            <div className="w-7 h-7 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700">
               <AlertCircle className="w-3.5 h-3.5" />
             </div>
           </div>
           <div className="mt-2">
-            <div className="text-2xl font-bold text-zinc-400 font-mono">{stats.rejected}</div>
-            <div className="text-[10px] text-zinc-400 mt-0.5">Filtered by rubric / policy</div>
+            <div className="text-2xl font-bold text-slate-700 font-mono">{stats.rejected}</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Filtered by rubric / policy</div>
           </div>
         </div>
 
         {/* Mean Assessment Score */}
-        <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1e293b] hover:border-zinc-700 transition-all col-span-2 lg:col-span-1 flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-300 shadow-xs transition-all col-span-2 lg:col-span-1 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Mean Score</span>
-            <div className="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mean Score</span>
+            <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
+              <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
             </div>
           </div>
           <div className="mt-2">
             <div className="flex items-baseline gap-1">
-              <span className="text-2xl font-bold text-white font-mono">{stats.avgRating}</span>
-              <span className="text-xs text-zinc-400 font-mono">/ 5.0</span>
+              <span className="text-2xl font-bold text-slate-900 font-mono">{stats.avgRating}</span>
+              <span className="text-xs text-slate-400 font-mono">/ 5.0</span>
             </div>
-            <div className="text-[10px] text-zinc-400 mt-0.5">Average applicant grade</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Average applicant grade</div>
           </div>
         </div>
       </div>
 
-      {/* Clivax Visual Distribution Strip */}
+      {/* Visual Distribution Strip */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Score Distribution Breakdown Bar Chart */}
-        <div className="lg:col-span-2 p-5 rounded-2xl bg-[#0d131f] border border-[#1e293b] space-y-3">
+        <div className="lg:col-span-2 p-5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <BarChart3 className="w-4 h-4 text-emerald-400" />
-              <h2 className="text-xs font-bold uppercase tracking-wider text-zinc-200">
+              <BarChart3 className="w-4 h-4 text-emerald-600" />
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-800">
                 Evaluation Score Distribution
               </h2>
             </div>
-            <span className="text-[11px] text-zinc-400 font-mono">
+            <span className="text-[11px] text-slate-500 font-mono">
               {candidates.length} Samples
             </span>
           </div>
@@ -371,13 +371,13 @@ export default function CandidateDashboard() {
             {scoreDistribution.map((item, idx) => (
               <div key={idx} className="space-y-1">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-zinc-300 font-medium">{item.stars}</span>
+                  <span className="text-slate-700 font-medium">{item.stars}</span>
                   <div className="flex items-center gap-2 font-mono text-[11px]">
-                    <span className="text-zinc-200 font-semibold">{item.count}</span>
-                    <span className="text-zinc-400">({item.pct}%)</span>
+                    <span className="text-slate-900 font-semibold">{item.count}</span>
+                    <span className="text-slate-500">({item.pct}%)</span>
                   </div>
                 </div>
-                <div className="h-2 w-full bg-zinc-800/80 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full ${item.color} rounded-full transition-all duration-500`}
                     style={{ width: `${Math.max(item.pct, item.count > 0 ? 5 : 0)}%` }}
@@ -389,34 +389,34 @@ export default function CandidateDashboard() {
         </div>
 
         {/* Funnel & Vault Status Card */}
-        <div className="p-5 rounded-2xl bg-[#0d131f] border border-[#1e293b] flex flex-col justify-between space-y-4">
+        <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <h2 className="text-xs font-bold uppercase tracking-wider text-zinc-200">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-800">
                 Decentralized Data Vault
               </h2>
             </div>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-slate-500">
               Zero-loss architecture: Every scorecard is stored locally in your browser before syncing to the cloud database.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#111827] border border-[#1e293b] space-y-2">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
             <div className="flex items-center justify-between text-xs">
-              <span className="text-zinc-400">Offline Vault Records:</span>
-              <span className="font-mono font-bold text-emerald-400">{localVaultCount}</span>
+              <span className="text-slate-500">Offline Vault Records:</span>
+              <span className="font-mono font-bold text-emerald-700">{localVaultCount}</span>
             </div>
             <div className="flex items-center justify-between text-xs">
-              <span className="text-zinc-400">Active Evaluators:</span>
-              <span className="font-mono font-bold text-zinc-200">
+              <span className="text-slate-500">Active Evaluators:</span>
+              <span className="font-mono font-bold text-slate-800">
                 {new Set(candidates.map((c) => c.interviewer_ign)).size} Staff
               </span>
             </div>
             <div className="flex items-center justify-between text-xs">
-              <span className="text-zinc-400">Cloud Sync:</span>
-              <span className="font-mono text-emerald-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="text-slate-500">Cloud Sync:</span>
+              <span className="font-mono text-emerald-700 flex items-center gap-1 font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Active
               </span>
             </div>
@@ -425,20 +425,20 @@ export default function CandidateDashboard() {
           <button
             type="button"
             onClick={() => setIsBackupModalOpen(true)}
-            className="w-full py-2 rounded-xl text-xs font-semibold bg-[#162032] hover:bg-[#1a263c] border border-[#1e293b] text-zinc-200 hover:text-white transition-colors flex items-center justify-center gap-2"
+            className="w-full py-2 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
           >
-            <Upload className="w-3.5 h-3.5 text-emerald-400" />
+            <Upload className="w-3.5 h-3.5 text-emerald-600" />
             <span>Open Bulk Import & Backups</span>
           </button>
         </div>
       </div>
 
       {/* High-Density Candidates Datatable Card */}
-      <div className="rounded-2xl bg-[#0d131f] border border-[#1e293b] overflow-hidden shadow-xl space-y-0">
+      <div className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xs space-y-0">
         {/* Controls & Filter Bar */}
-        <div className="p-4 border-b border-[#1e293b] flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="p-4 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-50/50">
           {/* Status Tabs */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-[#111827] border border-[#1e293b] overflow-x-auto scrollbar-none text-xs">
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200 overflow-x-auto scrollbar-none text-xs">
             {[
               { id: 'all', label: 'All Records', count: stats.total },
               { id: 'pending', label: 'Pending', count: stats.pending },
@@ -449,10 +449,10 @@ export default function CandidateDashboard() {
                 key={tab.id}
                 type="button"
                 onClick={() => setStatusFilter(tab.id)}
-                className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
                   statusFilter === tab.id
-                    ? 'bg-emerald-600 text-white font-semibold shadow-sm'
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#162032]'
+                    ? 'bg-white text-slate-900 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-800 hover:bg-white/60'
                 }`}
               >
                 <span>{tab.label}</span>
@@ -465,13 +465,13 @@ export default function CandidateDashboard() {
           <div className="flex items-center gap-2 w-full md:w-auto">
             {/* Search Input */}
             <div className="relative flex-1 md:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search IGN, evaluator, notes..."
-                className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#111827] border border-[#1e293b] text-zinc-200 text-xs focus:outline-none focus:border-emerald-500"
+                className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-emerald-500 placeholder-slate-400"
               />
             </div>
 
@@ -479,7 +479,7 @@ export default function CandidateDashboard() {
             <select
               value={ratingFilter}
               onChange={(e) => setRatingFilter(e.target.value)}
-              className="px-2.5 py-1.5 rounded-xl bg-[#111827] border border-[#1e293b] text-zinc-300 text-xs focus:outline-none focus:border-emerald-500"
+              className="px-2.5 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
             >
               <option value="all">All Scores</option>
               <option value="5">5.0 ★ Exceptional</option>
@@ -492,7 +492,7 @@ export default function CandidateDashboard() {
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value as any)}
-              className="px-2.5 py-1.5 rounded-xl bg-[#111827] border border-[#1e293b] text-zinc-300 text-xs focus:outline-none focus:border-emerald-500"
+              className="px-2.5 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
@@ -506,7 +506,7 @@ export default function CandidateDashboard() {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-[#1e293b] bg-[#0a0f18]/60 text-[10px] uppercase font-bold tracking-wider text-zinc-400">
+              <tr className="border-b border-slate-200 bg-slate-50 text-[10px] uppercase font-bold tracking-wider text-slate-500">
                 <th className="py-3 px-4">Candidate IGN</th>
                 <th className="py-3 px-3">Score</th>
                 <th className="py-3 px-3">Status</th>
@@ -516,20 +516,20 @@ export default function CandidateDashboard() {
                 <th className="py-3 px-4 text-right">Admissions Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#1e293b]/70">
+            <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="py-16 text-center text-zinc-500">
-                    <RefreshCw className="w-5 h-5 animate-spin mx-auto mb-2 text-emerald-400" />
+                  <td colSpan={7} className="py-16 text-center text-slate-500">
+                    <RefreshCw className="w-5 h-5 animate-spin mx-auto mb-2 text-emerald-600" />
                     <span>Synchronizing candidate records...</span>
                   </td>
                 </tr>
               ) : filteredCandidates.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="py-16 text-center text-zinc-500">
-                    <Users className="w-8 h-8 mx-auto mb-2 text-zinc-600 opacity-60" />
-                    <p className="text-sm font-semibold text-zinc-400">No candidate records match your query.</p>
-                    <p className="text-xs text-zinc-500 mt-1">Try resetting filters or launch a new evaluation scorecard.</p>
+                  <td colSpan={7} className="py-16 text-center text-slate-500">
+                    <Users className="w-8 h-8 mx-auto mb-2 text-slate-400 opacity-60" />
+                    <p className="text-sm font-semibold text-slate-700">No candidate records match your query.</p>
+                    <p className="text-xs text-slate-400 mt-1">Try resetting filters or launch a new evaluation scorecard.</p>
                   </td>
                 </tr>
               ) : (
@@ -545,17 +545,17 @@ export default function CandidateDashboard() {
                         setSelectedCandidate(candidate);
                         setIsCandidateModalOpen(true);
                       }}
-                      className="hover:bg-[#111827]/80 transition-colors cursor-pointer group"
+                      className="hover:bg-slate-50/80 transition-colors cursor-pointer group"
                     >
                       {/* Candidate Avatar & IGN */}
                       <td className="py-3.5 px-4 font-medium">
                         <div className="flex items-center gap-3">
                           <SkinAvatar ign={candidate.ign} size={32} />
                           <div>
-                            <span className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                            <span className="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                               {candidate.ign}
                             </span>
-                            <div className="text-[10px] text-zinc-400 font-mono">
+                            <div className="text-[10px] text-slate-400 font-mono">
                               ID: {candidate.id.substring(0, 10)}
                             </div>
                           </div>
@@ -564,9 +564,9 @@ export default function CandidateDashboard() {
 
                       {/* Score */}
                       <td className="py-3.5 px-3">
-                        <div className="flex items-center gap-1 font-mono font-bold text-amber-400">
+                        <div className="flex items-center gap-1 font-mono font-bold text-amber-600">
                           <span>{candidate.rating}.0</span>
-                          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                          <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
                         </div>
                       </td>
 
@@ -575,19 +575,19 @@ export default function CandidateDashboard() {
                         <span
                           className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
                             isAccepted
-                              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/25'
+                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                               : isPending
-                              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/25'
-                              : 'bg-rose-500/10 text-rose-400 border border-rose-500/25'
+                              ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                              : 'bg-rose-50 text-rose-700 border border-rose-200'
                           }`}
                         >
                           <span
                             className={`w-1.5 h-1.5 rounded-full ${
                               isAccepted
-                                ? 'bg-emerald-400'
+                                ? 'bg-emerald-500'
                                 : isPending
-                                ? 'bg-amber-400'
-                                : 'bg-rose-400'
+                                ? 'bg-amber-500'
+                                : 'bg-rose-500'
                             }`}
                           />
                           {isAccepted ? 'Admitted' : isPending ? 'Pending' : 'Disqualified'}
@@ -596,21 +596,21 @@ export default function CandidateDashboard() {
 
                       {/* Notes / Assessment Log */}
                       <td className="py-3.5 px-4 max-w-xs sm:max-w-sm">
-                        <p className="text-zinc-300 truncate font-normal">
-                          {candidate.notes || <span className="text-zinc-500 italic">No notes provided</span>}
+                        <p className="text-slate-700 truncate font-normal">
+                          {candidate.notes || <span className="text-slate-400 italic">No notes provided</span>}
                         </p>
                         {candidate.tags && candidate.tags.length > 0 && (
                           <div className="flex flex-wrap gap-1 mt-1">
                             {candidate.tags.slice(0, 2).map((t, idx) => (
                               <span
                                 key={idx}
-                                className="text-[9px] px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 border border-zinc-700 font-mono"
+                                className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono"
                               >
                                 {t}
                               </span>
                             ))}
                             {candidate.tags.length > 2 && (
-                              <span className="text-[9px] text-zinc-500 font-mono">
+                              <span className="text-[9px] text-slate-400 font-mono">
                                 +{candidate.tags.length - 2}
                               </span>
                             )}
@@ -622,14 +622,14 @@ export default function CandidateDashboard() {
                       <td className="py-3.5 px-3">
                         <div className="flex items-center gap-2">
                           <SkinAvatar ign={candidate.interviewer_ign || 'Staff'} size={20} />
-                          <span className="text-zinc-300 font-medium">
+                          <span className="text-slate-700 font-medium">
                             {candidate.interviewer_ign || 'Staff'}
                           </span>
                         </div>
                       </td>
 
                       {/* Date */}
-                      <td className="py-3.5 px-3 text-zinc-400 font-mono text-[11px] whitespace-nowrap">
+                      <td className="py-3.5 px-3 text-slate-500 font-mono text-[11px] whitespace-nowrap">
                         {new Date(candidate.created_at).toLocaleDateString(undefined, {
                           month: 'short',
                           day: 'numeric',
@@ -644,10 +644,10 @@ export default function CandidateDashboard() {
                             type="button"
                             onClick={(e) => handleQuickStatusChange(candidate.id, 'accepted', e)}
                             title="Admit candidate to SMP"
-                            className={`p-1.5 rounded-lg transition-colors ${
+                            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                               isAccepted
-                                ? 'bg-emerald-500 text-white shadow-sm'
-                                : 'text-zinc-400 hover:text-emerald-400 hover:bg-emerald-500/10'
+                                ? 'bg-emerald-600 text-white shadow-xs'
+                                : 'text-slate-400 hover:text-emerald-700 hover:bg-emerald-50'
                             }`}
                           >
                             <Check className="w-3.5 h-3.5" />
@@ -658,10 +658,10 @@ export default function CandidateDashboard() {
                             type="button"
                             onClick={(e) => handleQuickStatusChange(candidate.id, 'pending', e)}
                             title="Mark as pending review"
-                            className={`p-1.5 rounded-lg transition-colors ${
+                            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                               isPending
-                                ? 'bg-amber-500 text-white shadow-sm'
-                                : 'text-zinc-400 hover:text-amber-400 hover:bg-amber-500/10'
+                                ? 'bg-amber-500 text-white shadow-xs'
+                                : 'text-slate-400 hover:text-amber-700 hover:bg-amber-50'
                             }`}
                           >
                             <Clock className="w-3.5 h-3.5" />
@@ -672,10 +672,10 @@ export default function CandidateDashboard() {
                             type="button"
                             onClick={(e) => handleQuickStatusChange(candidate.id, 'rejected', e)}
                             title="Disqualify applicant"
-                            className={`p-1.5 rounded-lg transition-colors ${
+                            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                               isRejected
-                                ? 'bg-rose-500 text-white shadow-sm'
-                                : 'text-zinc-400 hover:text-rose-400 hover:bg-rose-500/10'
+                                ? 'bg-rose-600 text-white shadow-xs'
+                                : 'text-slate-400 hover:text-rose-700 hover:bg-rose-50'
                             }`}
                           >
                             <X className="w-3.5 h-3.5" />
@@ -688,7 +688,7 @@ export default function CandidateDashboard() {
                               setSelectedCandidate(candidate);
                               setIsCandidateModalOpen(true);
                             }}
-                            className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-[#162032] transition-colors ml-1"
+                            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors ml-1 cursor-pointer"
                             title="Open candidate scorecard"
                           >
                             <ChevronRight className="w-4 h-4" />

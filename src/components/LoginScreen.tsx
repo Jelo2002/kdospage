@@ -186,10 +186,10 @@ export default function LoginScreen() {
 
   return (
     <div className="w-full max-w-sm mx-auto animate-fade-in">
-      <div className="bg-zinc-900/70 border border-zinc-800/90 rounded-xl shadow-2xl p-6 sm:p-7 backdrop-blur-md space-y-5">
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-6 sm:p-7 space-y-5">
         {/* Header */}
         <div className="space-y-2 text-center">
-          <div className="relative w-14 h-14 rounded-xl overflow-hidden mx-auto shadow-xl ring-2 ring-emerald-500/40">
+          <div className="relative w-14 h-14 rounded-2xl overflow-hidden mx-auto shadow-md ring-2 ring-emerald-500/20 bg-slate-50">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/kdos-logo.png"
@@ -201,11 +201,11 @@ export default function LoginScreen() {
             />
           </div>
           <div>
-            <h1 className="text-lg font-bold tracking-tight text-zinc-100 flex items-center justify-center gap-1.5">
+            <h1 className="text-lg font-bold tracking-tight text-slate-900 flex items-center justify-center gap-1.5">
               <span>KDOS</span>
-              <span className="text-emerald-400 font-normal">Operations</span>
+              <span className="text-emerald-600 font-semibold">Operations</span>
             </h1>
-            <p className="text-[11px] text-zinc-400 mt-0.5">
+            <p className="text-[11px] text-slate-500 mt-0.5">
               {mode === 'set_pin'
                 ? 'Assign Your Personal Security PIN'
                 : mode === 'register'
@@ -217,9 +217,9 @@ export default function LoginScreen() {
 
         {/* Error Alert */}
         {errorMsg && (
-          <div className="p-2.5 rounded-md bg-rose-950/50 border border-rose-800/60 text-rose-300 text-xs flex items-center gap-2">
-            <Lock className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
-            <span>{errorMsg}</span>
+          <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+            <Lock className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
+            <span className="font-medium">{errorMsg}</span>
           </div>
         )}
 
@@ -228,7 +228,7 @@ export default function LoginScreen() {
           <form onSubmit={handleLoginSubmit} className="space-y-3.5 text-left">
             {/* Discord Name */}
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
                 Discord Username
               </label>
               <input
@@ -238,26 +238,26 @@ export default function LoginScreen() {
                 value={discordTag}
                 onChange={(e) => setDiscordTag(e.target.value)}
                 placeholder="e.g. username or username#0000"
-                className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 focus:border-zinc-400 placeholder-zinc-600 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 placeholder-slate-400 font-mono transition-all"
               />
             </div>
 
             {/* Personal PIN */}
             <div>
               <div className="flex items-center justify-between mb-1">
-                <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                   Unique PIN
                 </label>
-                <span className="text-[10px] text-zinc-500">4-6 digits</span>
+                <span className="text-[10px] text-slate-400">4-6 digits</span>
               </div>
               <div className="relative">
-                <KeyRound className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-500" />
+                <KeyRound className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                 <input
                   type="password"
                   value={pin}
                   onChange={(e) => setPin(e.target.value)}
                   placeholder="••••"
-                  className="w-full pl-8 pr-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 focus:border-zinc-400 placeholder-zinc-600 font-mono tracking-widest"
+                  className="w-full pl-8 pr-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 placeholder-slate-400 font-mono tracking-widest transition-all"
                 />
               </div>
             </div>
@@ -269,9 +269,9 @@ export default function LoginScreen() {
                 id="rememberMe"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="rounded border-zinc-700 bg-zinc-950 text-zinc-100 focus:ring-0 w-3.5 h-3.5 cursor-pointer"
+                className="rounded border-slate-300 bg-white text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5 cursor-pointer"
               />
-              <label htmlFor="rememberMe" className="text-xs text-zinc-400 cursor-pointer select-none">
+              <label htmlFor="rememberMe" className="text-xs text-slate-600 cursor-pointer select-none">
                 Remember session on this device
               </label>
             </div>
@@ -280,14 +280,14 @@ export default function LoginScreen() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-2 py-2 px-3 rounded-md font-medium text-xs bg-zinc-100 hover:bg-white text-zinc-950 transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50 cursor-pointer"
+              className="w-full mt-2 py-2.5 px-3 rounded-lg font-semibold text-xs bg-emerald-600 hover:bg-emerald-700 text-white transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50 cursor-pointer"
             >
               <span>{isSubmitting ? 'Authenticating...' : 'Sign In'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
             {/* Toggle to Register */}
-            <div className="pt-2 text-center text-[11px] text-zinc-500 border-t border-zinc-800/60">
+            <div className="pt-2 text-center text-[11px] text-slate-500 border-t border-slate-100">
               New team member?{' '}
               <button
                 type="button"
@@ -295,7 +295,7 @@ export default function LoginScreen() {
                   setMode('register');
                   setErrorMsg('');
                 }}
-                className="text-zinc-300 hover:underline font-medium"
+                className="text-emerald-700 hover:text-emerald-800 hover:underline font-semibold"
               >
                 Register your profile & PIN
               </button>
@@ -306,24 +306,24 @@ export default function LoginScreen() {
         {/* MODE 2: Set Unique PIN (First time setup or after Admin Reset) */}
         {mode === 'set_pin' && (
           <form onSubmit={handleSetPinSubmit} className="space-y-3.5 text-left animate-fade-in">
-            <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center gap-3">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3">
               <SkinAvatar ign={pendingStaff?.ign || 'User'} size={34} />
               <div>
-                <div className="text-xs font-semibold text-zinc-100">
+                <div className="text-xs font-semibold text-slate-900">
                   {pendingStaff?.ign}
                 </div>
-                <div className="text-[10px] text-zinc-400 font-mono">
+                <div className="text-[10px] text-slate-500 font-mono">
                   {pendingStaff?.discord_tag} • {pendingStaff?.role}
                 </div>
               </div>
             </div>
 
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-slate-600">
               No security PIN is currently linked to your account. Assign your unique PIN below:
             </p>
 
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
                 Choose Your Unique PIN (4+ digits)
               </label>
               <input
@@ -333,12 +333,12 @@ export default function LoginScreen() {
                 value={newPin}
                 onChange={(e) => setNewPin(e.target.value)}
                 placeholder="e.g. 1234"
-                className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 font-mono tracking-widest"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 font-mono tracking-widest transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
                 Confirm Your PIN
               </label>
               <input
@@ -347,7 +347,7 @@ export default function LoginScreen() {
                 value={confirmPin}
                 onChange={(e) => setConfirmPin(e.target.value)}
                 placeholder="••••"
-                className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 font-mono tracking-widest"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 font-mono tracking-widest transition-all"
               />
             </div>
 
@@ -357,9 +357,9 @@ export default function LoginScreen() {
                 id="rememberMeSet"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="rounded border-zinc-700 bg-zinc-950 text-zinc-100 focus:ring-0 w-3.5 h-3.5 cursor-pointer"
+                className="rounded border-slate-300 bg-white text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5 cursor-pointer"
               />
-              <label htmlFor="rememberMeSet" className="text-xs text-zinc-400 cursor-pointer select-none">
+              <label htmlFor="rememberMeSet" className="text-xs text-slate-600 cursor-pointer select-none">
                 Remember session on this device
               </label>
             </div>
@@ -367,7 +367,7 @@ export default function LoginScreen() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2 px-3 rounded-md font-medium text-xs bg-zinc-100 hover:bg-white text-zinc-950 transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50"
+              className="w-full py-2.5 px-3 rounded-lg font-semibold text-xs bg-emerald-600 hover:bg-emerald-700 text-white transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50"
             >
               <span>{isSubmitting ? 'Saving PIN...' : 'Save PIN & Enter Portal'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -379,7 +379,7 @@ export default function LoginScreen() {
                 setMode('login');
                 setErrorMsg('');
               }}
-              className="w-full text-center text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              className="w-full text-center text-xs text-slate-500 hover:text-slate-800 transition-colors"
             >
               Back to Sign In
             </button>
@@ -390,22 +390,22 @@ export default function LoginScreen() {
         {mode === 'register' && (
           <form onSubmit={handleRegisterSubmit} className="space-y-3 text-left animate-fade-in">
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
-                Discord Username <span className="text-rose-400">*</span>
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                Discord Username <span className="text-rose-500">*</span>
               </label>
               <input
                 type="text"
                 required
                 value={regDiscord}
                 onChange={(e) => setRegDiscord(e.target.value)}
-                placeholder="e.g. username#0000"
-                className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 font-mono"
+                placeholder="e.g. username or username#0000"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 font-mono transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
-                Minecraft In-Game Name (IGN) <span className="text-rose-400">*</span>
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                Minecraft In-Game Name (IGN) <span className="text-rose-500">*</span>
               </label>
               <div className="flex items-center gap-2">
                 <SkinAvatar ign={regIgn || 'User'} size={30} />
@@ -415,27 +415,27 @@ export default function LoginScreen() {
                   value={regIgn}
                   onChange={(e) => setRegIgn(e.target.value)}
                   placeholder="Minecraft username"
-                  className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
                 Assigned Role
               </label>
-              <div className="px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-300 text-xs flex items-center justify-between">
-                <span>Staff / Interviewer</span>
-                <span className="text-[10px] text-zinc-500 font-mono">Evaluator</span>
+              <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs flex items-center justify-between">
+                <span className="font-medium">Staff / Interviewer</span>
+                <span className="text-[10px] text-slate-400 font-mono">Evaluator</span>
               </div>
-              <p className="text-[10px] text-zinc-500 mt-1">
+              <p className="text-[10px] text-slate-400 mt-1">
                 Leadership roles (Admin, Developer, Owner) are strictly provisioned by leadership.
               </p>
             </div>
 
             <div>
-              <label className="block text-[11px] font-medium uppercase tracking-wider text-zinc-400 mb-1">
-                Create Your Unique PIN <span className="text-rose-400">*</span>
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                Create Your Unique PIN <span className="text-rose-500">*</span>
               </label>
               <input
                 type="password"
@@ -443,14 +443,14 @@ export default function LoginScreen() {
                 value={regPin}
                 onChange={(e) => setRegPin(e.target.value)}
                 placeholder="Choose 4+ digit PIN"
-                className="w-full px-3 py-1.5 rounded-md bg-zinc-950 border border-zinc-800 text-zinc-100 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-400 font-mono tracking-widest"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:bg-white focus:ring-1 focus:ring-emerald-500 font-mono tracking-widest transition-all"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-2 py-2 px-3 rounded-md font-medium text-xs bg-zinc-100 hover:bg-white text-zinc-950 transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50"
+              className="w-full mt-2 py-2.5 px-3 rounded-lg font-semibold text-xs bg-emerald-600 hover:bg-emerald-700 text-white transition-colors flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50"
             >
               <span>{isSubmitting ? 'Creating Profile...' : 'Complete Registration'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -462,7 +462,7 @@ export default function LoginScreen() {
                 setMode('login');
                 setErrorMsg('');
               }}
-              className="w-full text-center text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              className="w-full text-center text-xs text-slate-500 hover:text-slate-800 transition-colors"
             >
               Already have an account? Sign In
             </button>

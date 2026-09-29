@@ -17,7 +17,7 @@ export default function SkinAvatar({ ign, size = 36, className = '' }: SkinAvata
     return (
       <div
         style={{ width: size, height: size }}
-        className={`bg-zinc-800 border border-zinc-700/60 rounded-md flex items-center justify-center font-mono text-[11px] font-semibold text-zinc-300 select-none flex-shrink-0 ${className}`}
+        className={`bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center font-mono text-[11px] font-semibold text-slate-700 select-none flex-shrink-0 ${className}`}
       >
         {cleanIgn ? cleanIgn.substring(0, 2).toUpperCase() : 'MC'}
       </div>
@@ -27,7 +27,7 @@ export default function SkinAvatar({ ign, size = 36, className = '' }: SkinAvata
   return (
     <div
       style={{ width: size, height: size }}
-      className={`relative overflow-hidden rounded-md border border-zinc-800 bg-zinc-900 flex-shrink-0 ${className}`}
+      className={`relative overflow-hidden rounded-lg border border-slate-200 bg-slate-50 flex-shrink-0 ${className}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

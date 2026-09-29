@@ -12,11 +12,11 @@ interface StarRatingProps {
 }
 
 const SCORE_CRITERIA: Record<number, { label: string; desc: string; tone: string }> = {
-  1: { label: '1.0 — Strong No', desc: 'Severe rule violation, disruptive conduct, or disqualifying technical issues.', tone: 'text-rose-400' },
-  2: { label: '2.0 — Below Standard', desc: 'Inconsistent interview responses, questionable reliability, or inadequate setup.', tone: 'text-amber-400' },
-  3: { label: '3.0 — Meets Baseline', desc: 'Satisfactory responses, adheres to baseline rules, requires secondary consensus.', tone: 'text-zinc-300' },
-  4: { label: '4.0 — Recommended', desc: 'Strong candidate, solid communication, verified experience, positive culture addition.', tone: 'text-emerald-400' },
-  5: { label: '5.0 — Strong Hire / Exceptional', desc: 'Top-tier portfolio, outstanding technical and collaborative maturity. Immediate acceptance.', tone: 'text-emerald-300' },
+  1: { label: '1.0 — Strong No', desc: 'Severe rule violation, disruptive conduct, or disqualifying technical issues.', tone: 'text-rose-600' },
+  2: { label: '2.0 — Below Standard', desc: 'Inconsistent interview responses, questionable reliability, or inadequate setup.', tone: 'text-amber-600' },
+  3: { label: '3.0 — Meets Baseline', desc: 'Satisfactory responses, adheres to baseline rules, requires secondary consensus.', tone: 'text-slate-700' },
+  4: { label: '4.0 — Recommended', desc: 'Strong candidate, solid communication, verified experience, positive culture addition.', tone: 'text-emerald-700' },
+  5: { label: '5.0 — Strong Hire / Exceptional', desc: 'Top-tier portfolio, outstanding technical and collaborative maturity. Immediate acceptance.', tone: 'text-emerald-800 font-bold' },
 };
 
 export default function StarRating({
@@ -51,7 +51,7 @@ export default function StarRating({
               className={`p-0.5 rounded transition-colors ${
                 readOnly
                   ? 'cursor-default'
-                  : 'cursor-pointer hover:bg-zinc-850 focus:outline-none focus:ring-1 focus:ring-zinc-500'
+                  : 'cursor-pointer hover:bg-slate-100 focus:outline-none focus:ring-1 focus:ring-emerald-500'
               }`}
               title={`${star}.0`}
               aria-label={`Score ${star}`}
@@ -59,27 +59,27 @@ export default function StarRating({
               <Star
                 className={`${starSizes[size]} ${
                   isFilled
-                    ? 'fill-amber-400 text-amber-400'
-                    : 'fill-transparent text-zinc-600 hover:text-zinc-400'
+                    ? 'fill-amber-400 text-amber-500'
+                    : 'fill-transparent text-slate-300 hover:text-slate-400'
                 }`}
               />
             </button>
           );
         })}
 
-        <span className="ml-2 font-mono text-xs font-semibold text-zinc-300">
+        <span className="ml-2 font-mono text-xs font-bold text-slate-800">
           {activeVal ? `${activeVal}.0` : '0.0'}
-          <span className="text-zinc-500 font-normal"> / 5.0</span>
+          <span className="text-slate-400 font-normal"> / 5.0</span>
         </span>
       </div>
 
       {showLabel && activeVal > 0 && SCORE_CRITERIA[activeVal] && (
         <div className="text-left pt-0.5">
-          <span className={`text-xs font-medium ${SCORE_CRITERIA[activeVal].tone}`}>
+          <span className={`text-xs font-semibold ${SCORE_CRITERIA[activeVal].tone}`}>
             {SCORE_CRITERIA[activeVal].label}
           </span>
           {!readOnly && (
-            <p className="text-[11px] text-zinc-400 leading-tight mt-0.5">
+            <p className="text-[11px] text-slate-500 leading-tight mt-0.5">
               {SCORE_CRITERIA[activeVal].desc}
             </p>
           )}

@@ -21,24 +21,24 @@ export default function DepartmentCard({
   return (
     <div
       onClick={onSelect}
-      className={`p-3.5 rounded-xl border transition-all cursor-pointer text-left ${
+      className={`p-3.5 rounded-xl border transition-all cursor-pointer text-left shadow-xs ${
         isSelected
-          ? 'bg-clivax-card border-clivax-primary/60 shadow-lg shadow-clivax-primary/5 ring-1 ring-clivax-primary/40'
-          : 'bg-clivax-card/70 border-clivax-border hover:bg-clivax-card hover:border-slate-700'
+          ? 'bg-emerald-50/40 border-emerald-500 shadow-sm ring-1 ring-emerald-500'
+          : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-sm'
       }`}
     >
       {/* Title & Status */}
       <div className="flex items-start justify-between gap-2 mb-2">
-        <h3 className="font-semibold text-xs text-slate-200 line-clamp-1">
+        <h3 className="font-semibold text-xs text-slate-900 line-clamp-1">
           {name}
         </h3>
 
         {is_lacking ? (
-          <span className="text-[10px] font-semibold font-mono px-2 py-0.5 rounded-md bg-rose-500/15 border border-rose-500/30 text-rose-400">
+          <span className="text-[10px] font-semibold font-mono px-2 py-0.5 rounded-md bg-rose-50 border border-rose-200 text-rose-700">
             -{deficiency_count} Deficit
           </span>
         ) : (
-          <span className="text-[10px] font-medium font-mono px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <span className="text-[10px] font-semibold font-mono px-2 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700">
             Healthy
           </span>
         )}
@@ -46,17 +46,17 @@ export default function DepartmentCard({
 
       {/* Headcount metrics */}
       <div className="flex items-baseline justify-between my-2">
-        <div className="text-xl font-bold font-mono text-slate-100">
+        <div className="text-xl font-bold font-mono text-slate-900">
           {active_staff}{' '}
-          <span className="text-xs font-normal text-slate-500">/ {min_required_staff} Min</span>
+          <span className="text-xs font-normal text-slate-400">/ {min_required_staff} Min</span>
         </div>
-        <div className={`text-xs font-mono font-semibold ${is_lacking ? 'text-rose-400' : 'text-emerald-400'}`}>
+        <div className={`text-xs font-mono font-semibold ${is_lacking ? 'text-rose-600' : 'text-emerald-700'}`}>
           {percentActive}%
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full h-1.5 rounded-full bg-slate-800/80 overflow-hidden mb-2.5">
+      <div className="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden mb-2.5">
         <div
           className={`h-full rounded-full transition-all duration-500 ${
             is_lacking ? 'bg-rose-500' : percentActive >= 100 ? 'bg-emerald-500' : 'bg-amber-500'
@@ -66,10 +66,10 @@ export default function DepartmentCard({
       </div>
 
       {/* Breakdown footer */}
-      <div className="flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-clivax-border">
-        <span>Active: <strong className="text-emerald-400 font-mono">{active_staff}</strong></span>
-        <span>LOA: <strong className="text-amber-400 font-mono">{loa_staff}</strong></span>
-        <span>Hiatus: <strong className="text-slate-400 font-mono">{hiatus_staff}</strong></span>
+      <div className="flex items-center justify-between text-[10px] text-slate-500 pt-2 border-t border-slate-100">
+        <span>Active: <strong className="text-emerald-700 font-mono">{active_staff}</strong></span>
+        <span>LOA: <strong className="text-amber-700 font-mono">{loa_staff}</strong></span>
+        <span>Hiatus: <strong className="text-slate-600 font-mono">{hiatus_staff}</strong></span>
       </div>
     </div>
   );
