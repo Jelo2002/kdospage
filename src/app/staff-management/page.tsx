@@ -169,7 +169,7 @@ export default function StaffManagementPage() {
       }
       statsMap[interviewer].total += 1;
       if (c.rating) statsMap[interviewer].ratings.push(c.rating);
-      if (c.status === 'approved') statsMap[interviewer].admitted += 1;
+      if (c.status === 'accepted') statsMap[interviewer].admitted += 1;
       if (new Date(c.created_at) > new Date(statsMap[interviewer].latest)) {
         statsMap[interviewer].latest = c.created_at;
       }

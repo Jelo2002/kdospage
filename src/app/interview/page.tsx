@@ -190,7 +190,7 @@ export default function InterviewPage() {
 
           <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-xs text-emerald-400">
             <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span>Preserved in your device's local offline vault. Auto-syncs to the main operations pipeline.</span>
+            <span>Preserved in your device&apos;s local offline vault. Auto-syncs to the main operations pipeline.</span>
           </div>
 
           <div className="flex items-center gap-3 pt-2">
