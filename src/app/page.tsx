@@ -510,7 +510,7 @@ export default function CandidateDashboard() {
                 <th className="py-3 px-4">Candidate IGN</th>
                 <th className="py-3 px-3">Score</th>
                 <th className="py-3 px-3">Status</th>
-                <th className="py-3 px-4">Assessment Log & Competencies</th>
+                <th className="py-3 px-4">Assessment Log & Notes</th>
                 <th className="py-3 px-3">Evaluator</th>
                 <th className="py-3 px-3">Date</th>
                 <th className="py-3 px-4 text-right">Admissions Action</th>

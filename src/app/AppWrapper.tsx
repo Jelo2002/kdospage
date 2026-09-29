@@ -90,15 +90,17 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex">
       {/* Collapsible Left Sidebar */}
-      <Sidebar
-        isCollapsed={isCollapsed}
-        setIsCollapsed={setIsCollapsed}
-        isMobileOpen={isMobileOpen}
-        setIsMobileOpen={setIsMobileOpen}
-        totalCandidatesCount={candidates.length}
-        totalStaffCount={totalStaffCount}
-        onOpenBackupModal={() => setIsBackupModalOpen(true)}
-      />
+      <React.Suspense fallback={null}>
+        <Sidebar
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+          isMobileOpen={isMobileOpen}
+          setIsMobileOpen={setIsMobileOpen}
+          totalCandidatesCount={candidates.length}
+          totalStaffCount={totalStaffCount}
+          onOpenBackupModal={() => setIsBackupModalOpen(true)}
+        />
+      </React.Suspense>
 
       {/* Main Content Area */}
       <div

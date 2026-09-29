@@ -12,23 +12,11 @@ import {
   CheckCircle2, 
   RotateCcw, 
   ExternalLink,
-  Tag,
   FileText,
   User,
   Check,
   ShieldCheck
 } from 'lucide-react';
-
-const COMPETENCY_TAGS = [
-  'Technical Redstone',
-  'Advanced Architecture',
-  'Verified Audio/Mic',
-  'High Availability',
-  'Server Moderation',
-  'PvP / Combat',
-  'Community Lore',
-  'Policy Compliance Risk',
-];
 
 export default function InterviewPage() {
   const { staffName, setStaffName, isOwnerOrDev } = useRole();
@@ -37,23 +25,15 @@ export default function InterviewPage() {
   const [rating, setRating] = useState<number>(4);
   const [notes, setNotes] = useState('');
   const [interviewerIgn, setInterviewerIgn] = useState(staffName || 'Staff');
-  const [selectedTags, setSelectedTags] = useState<string[]>(['Verified Audio/Mic']);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedCandidate, setSubmittedCandidate] = useState<any | null>(null);
   const [errorMsg, setErrorMsg] = useState('');
   const [isVaultSaved, setIsVaultSaved] = useState(false);
 
-  const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
-
   const handleResetForm = () => {
     setIgn('');
     setRating(4);
     setNotes('');
-    setSelectedTags(['Verified Audio/Mic']);
     setSubmittedCandidate(null);
     setErrorMsg('');
     setIsVaultSaved(false);
@@ -81,7 +61,7 @@ export default function InterviewPage() {
       notes: notes.trim(),
       interviewer_ign: evaluator,
       status: 'pending' as const,
-      tags: selectedTags,
+      tags: [] as string[],
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     };
@@ -98,7 +78,7 @@ export default function InterviewPage() {
           rating,
           notes: notes.trim(),
           interviewer_ign: evaluator,
-          tags: selectedTags,
+          tags: [],
         }),
       });
 
@@ -268,37 +248,7 @@ export default function InterviewPage() {
             />
           </div>
 
-          {/* Section 4: Competencies & Tags */}
-          <div className="space-y-2">
-            <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-              Demonstrated Competencies
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {COMPETENCY_TAGS.map((tag) => {
-                const active = selectedTags.includes(tag);
-                const isRisk = tag.includes('Risk');
-                return (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={() => toggleTag(tag)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border cursor-pointer ${
-                      active
-                        ? isRisk
-                          ? 'bg-rose-50 text-rose-800 border-rose-300 ring-1 ring-rose-300'
-                          : 'bg-emerald-50 text-emerald-800 border-emerald-300 ring-1 ring-emerald-300'
-                        : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900'
-                    }`}
-                  >
-                    {active ? '✓ ' : '+ '}
-                    {tag}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Section 5: Evaluator Information */}
+          {/* Section 4: Evaluator Information */}
           <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2.5">
               <span className="text-slate-500">Evaluator:</span>

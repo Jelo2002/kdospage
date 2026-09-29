@@ -11,14 +11,9 @@ import {
   Plus, 
   LogOut, 
   Shield, 
-  ShieldCheck, 
-  Check, 
-  Database,
   ExternalLink,
-  Search,
-  Sparkles
+  Search
 } from 'lucide-react';
-import { ActiveRole } from '@/lib/types';
 
 interface NavbarProps {
   onToggleMobileSidebar: () => void;
@@ -27,17 +22,10 @@ interface NavbarProps {
 
 export default function Navbar({ onToggleMobileSidebar, onOpenBackupModal }: NavbarProps) {
   const pathname = usePathname();
-  const { role, setRole, isOwnerOrDev, user, staffName, logout } = useRole();
+  const { role, isOwnerOrDev, user, staffName, logout } = useRole();
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   const displayName = user?.ign || staffName || 'StaffMember';
-
-  const rolesList: { role: ActiveRole; label: string; desc: string }[] = [
-    { role: 'Owner', label: 'Owner Mode', desc: 'Full executive administration' },
-    { role: 'Developer', label: 'Developer Mode', desc: 'Technical & operational access' },
-    { role: 'Admin', label: 'Admin Mode', desc: 'Workforce & admissions review' },
-    { role: 'Staff/Interviewer', label: 'Staff Mode', desc: 'Evaluator & scorecard focus' },
-  ];
 
   // Dynamic breadcrumb labels based on route
   const getBreadcrumbs = () => {
@@ -86,19 +74,6 @@ export default function Navbar({ onToggleMobileSidebar, onOpenBackupModal }: Nav
 
       {/* Right Controls */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* System Health Status Pill */}
-        <div 
-          onClick={onOpenBackupModal}
-          className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 cursor-pointer hover:bg-emerald-100/60 transition-colors shadow-xs"
-          title="Decentralized Client Vault & Cloud DB Sync active"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="font-mono text-[10px] text-emerald-700">VAULT: <strong className="text-emerald-900">ACTIVE</strong></span>
-        </div>
-
         {/* Quick Action: New Scorecard */}
         <Link
           href="/interview"
@@ -143,50 +118,8 @@ export default function Navbar({ onToggleMobileSidebar, onOpenBackupModal }: Nav
                   </div>
                 </div>
 
-                {/* Role Switcher (For leadership) */}
-                {isOwnerOrDev && (
-                  <div className="py-1">
-                    <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Switch Role View
-                    </div>
-                    {rolesList.map((r) => (
-                      <button
-                        key={r.role}
-                        type="button"
-                        onClick={() => {
-                          setRole(r.role);
-                          setProfileDropdownOpen(false);
-                        }}
-                        className={`w-full px-3 py-1.5 text-left flex items-center justify-between hover:bg-slate-50 transition-colors ${
-                          role === r.role ? 'text-emerald-700 font-semibold bg-emerald-50/50' : 'text-slate-700'
-                        }`}
-                      >
-                        <div>
-                          <div>{r.label}</div>
-                          <div className="text-[9px] text-slate-400">{r.desc}</div>
-                        </div>
-                        {role === r.role && <Check className="w-3.5 h-3.5 text-emerald-600" />}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
                 {/* Action Items */}
                 <div className="py-1">
-                  {onOpenBackupModal && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onOpenBackupModal();
-                        setProfileDropdownOpen(false);
-                      }}
-                      className="w-full px-3 py-2 text-left flex items-center gap-2 text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-colors"
-                    >
-                      <Database className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Data Vault & Backups</span>
-                    </button>
-                  )}
-
                   <button
                     type="button"
                     onClick={() => {

@@ -2,23 +2,19 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useRole } from './RoleContext';
 import SkinAvatar from './SkinAvatar';
 import { 
   Users, 
   ClipboardCheck, 
-  ShieldCheck, 
   UserCheck, 
   Calendar, 
   Activity, 
   Settings, 
   LogOut, 
   ChevronRight, 
-  Database,
   Briefcase,
-  Sparkles,
-  BarChart3,
   ExternalLink,
   ChevronLeft
 } from 'lucide-react';
@@ -43,9 +39,26 @@ export default function Sidebar({
   onOpenBackupModal,
 }: SidebarProps) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { role, isOwnerOrDev, user, staffName, logout } = useRole();
 
   const displayName = user?.ign || staffName || 'StaffMember';
+
+  const isHrefActive = (href: string) => {
+    if (!href) return false;
+    if (href.includes('?')) {
+      const [itemPath, itemQuery] = href.split('?');
+      if (pathname !== itemPath) return false;
+      const itemTab = new URLSearchParams(itemQuery).get('tab');
+      const currentTab = searchParams ? searchParams.get('tab') : null;
+      return itemTab === currentTab;
+    }
+    if (pathname === '/staff-management' && href === '/staff-management') {
+      const currentTab = searchParams ? searchParams.get('tab') : null;
+      return !currentTab || currentTab === 'directory';
+    }
+    return pathname === href;
+  };
 
   const navItems = [
     {
@@ -96,19 +109,6 @@ export default function Sidebar({
           href: '/staff-management?tab=leave',
           icon: Calendar,
           roles: ['Owner', 'Developer', 'Admin'],
-        },
-      ],
-    },
-    {
-      group: 'DATA & SYSTEM',
-      items: [
-        {
-          label: 'Backup & Restore Vault',
-          action: onOpenBackupModal,
-          icon: ShieldCheck,
-          badge: 'Fail-Safe',
-          badgeColor: 'bg-emerald-950/60 text-emerald-400 border-emerald-800/60',
-          roles: ['Owner', 'Developer', 'Admin', 'Staff/Interviewer'],
         },
       ],
     },
@@ -213,7 +213,7 @@ export default function Sidebar({
 
                 {visibleItems.map((item: any, iIdx: number) => {
                   const Icon = item.icon;
-                  const isActive = item.href ? pathname === item.href : false;
+                  const isActive = item.href ? isHrefActive(item.href) : false;
 
                   if (item.action) {
                     return (
